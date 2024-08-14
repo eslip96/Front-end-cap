@@ -1,0 +1,13 @@
+.footer-wrapper {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  border: 1px solid black;
+  width: 100%;
+  justify-content: center;
+  background-color: honeydew;
+
+  footer-links-container {
+    display: flex;
+  }
+}

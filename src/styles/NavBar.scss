@@ -1,0 +1,20 @@
+.nav-bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  top: 0;
+  border: 1px solid black;
+  position: fixed;
+  background-color: azure;
+  height: 100px;
+
+  .nav-links-container {
+    display: flex;
+    justify-content: space-between;
+
+    .NavLink {
+      display: flex;
+      text-decoration: none;
+    }
+  }
+}
