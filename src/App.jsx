@@ -7,6 +7,7 @@ import ProductsPage from "./components/ProductsPage";
 import ProductPage from "./components/ProductPage";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Switch>
           <Route path="/home" component={HomePage} />
           <Route path="/products" component={ProductsPage} />
-          <Route path="/product" component={ProductPage} />
+          <Route path="/product/:id" component={ProductPage} />
+          <Route path="/shopping-cart" component={ShoppingCart} />
         </Switch>
         <Footer />
       </BrowserRouter>
