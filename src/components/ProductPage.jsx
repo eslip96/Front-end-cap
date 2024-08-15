@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export default function ProductPage(props) {
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState();
   const productId = props.match.params.id;
 
   useEffect(() => {
