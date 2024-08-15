@@ -4,6 +4,7 @@ export default function HomePage() {
       <div className="mainbody">
         <h1>Home</h1>
         <h2>Hero-container</h2>
+        <h2>IMAGE HERE</h2>
       </div>
     </div>
   );

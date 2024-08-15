@@ -7,7 +7,7 @@ export default function NavBar() {
       <div className="nav-links-contianer">
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/products">Products</NavLink>
-        <NavLink to="/products">Contact</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
         <NavLink to="/shopping-cart">Shopping Cart</NavLink>
       </div>
     </div>
