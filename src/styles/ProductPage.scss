@@ -13,5 +13,28 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     transition: transform 0.3s ease-in-out;
+
+    .product-image {
+      width: 100%;
+      height: auto;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .product-title {
+      font-size: 1em;
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .product-price {
+      font-size: 1em;
+      color: #007bff;
+      margin: 5px 0;
+    }
+
+    .product-category {
+      font-size: 0.9em;
+      color: #777;
+    }
   }
 }
