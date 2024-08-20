@@ -1,11 +1,12 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { CartContext } from "../context/context";
+import { useParams } from "react-router-dom";
 
-export const CartContext = createContext();
-
-export default function ProductPage({ match, addToCart }) {
+export default function ProductPage({ match }) {
   const [product, setProduct] = useState(null);
-  const [quantity, setQuantity] = useState(0);
-  const productId = match.params.id;
+  const [quantity, setQuantity] = useState(1);
+  const { id: productId } = useParams;
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${productId}`)
@@ -15,24 +16,16 @@ export default function ProductPage({ match, addToCart }) {
   }, [productId]);
 
   const handleAddItem = () => {
-    setQuantity(quantity + 1);
+    setQuantity((prevQuantity) => prevQuantity + 1);
   };
 
   const handleRemoveItem = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-    }
+    setQuantity((prevQuantity) => Math.max(1, prevQuantity - 1));
   };
 
   const handleSubmit = () => {
-    if (quantity > 0) {
-      const cartItem = {
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        quantity,
-      };
-      addToCart(cartItem);
+    if (product && quantity > 0) {
+      addToCart({ ...product, quantity });
     }
   };
 
@@ -51,9 +44,7 @@ export default function ProductPage({ match, addToCart }) {
           <button onClick={handleRemoveItem}>-</button>
           <h3>{quantity}</h3>
           <button onClick={handleAddItem}>+</button>
-          <CartContext value={quantity}>
-            <button onClick={handleSubmit}>Add to Cart</button>
-          </CartContext>
+          <button onClick={handleSubmit}>Add to Cart</button>
         </div>
       ) : (
         <p>Loading product...</p>
