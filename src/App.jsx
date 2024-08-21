@@ -16,13 +16,15 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Switch>
-          <Route path="/home" component={HomePage} />
-          <Route path="/products" component={ProductsPage} />
-          <Route path="/product/:id" component={ProductPage} />
-          <Route path="/shopping-cart" component={ShoppingCart} />
-          <Route path="/contact" component={Contact} />
+          <div className="default-page-wrapper">
+            <Route path="/home" component={HomePage} />
+            <Route path="/products" component={ProductsPage} />
+            <Route path="/product/:id" component={ProductPage} />
+            <Route path="/shopping-cart" component={ShoppingCart} />
+            <Route path="/contact" component={Contact} />
+          </div>
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </div>
   );

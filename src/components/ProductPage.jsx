@@ -25,7 +25,7 @@ export default function ProductPage({ match }) {
   };
 
   const handleSubmit = () => {
-    if (quantity > 0) {
+    if (quantity > 0 || quantity < 0) {
       const cartItem = {
         id: product.id,
         title: product.title,

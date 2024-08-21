@@ -10,17 +10,31 @@ export const CartProvider = (props) => {
       const existingItem = prev.find((item) => item.id === product.id);
 
       if (existingItem) {
-        return prev.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity++ } : item
-        );
+        const updatedQuantity = existingItem.quantity + product.quantity;
+
+        if (updatedQuantity <= 0) {
+          return prev.filter((item) => item.id !== product.id);
+        } else {
+          return prev.map((item) =>
+            item.id === product.id
+              ? { ...item, quantity: updatedQuantity }
+              : item
+          );
+        }
+      } else if (product.quantity > 0) {
+        return [...prev, { ...product, quantity: product.quantity }];
       } else {
-        return [...prev, { ...product, quantity: 1 }];
+        return prev;
       }
     });
   };
 
+  const removeFromCart = (productId) => {
+    setCartItems((prev) => prev.filter((item) => item.id !== productId));
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
       {props.children}
     </CartContext.Provider>
   );
