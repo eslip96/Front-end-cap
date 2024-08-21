@@ -22,7 +22,7 @@ function App() {
           <Route path="/shopping-cart" component={ShoppingCart} />
           <Route path="/contact" component={Contact} />
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );

@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { CartContext } from "../context/context";
-import { useParams } from "react-router-dom";
 
 export default function ProductPage({ match }) {
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
-  const { id: productId } = useParams;
+  const productId = match.params.id;
   const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
@@ -16,16 +15,24 @@ export default function ProductPage({ match }) {
   }, [productId]);
 
   const handleAddItem = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
+    setQuantity(quantity + 1);
   };
 
   const handleRemoveItem = () => {
-    setQuantity((prevQuantity) => Math.max(1, prevQuantity - 1));
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
   };
 
   const handleSubmit = () => {
-    if (product && quantity > 0) {
-      addToCart({ ...product, quantity });
+    if (quantity > 0) {
+      const cartItem = {
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        quantity,
+      };
+      addToCart(cartItem);
     }
   };
 

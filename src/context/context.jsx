@@ -7,19 +7,14 @@ export const CartProvider = (props) => {
 
   const addToCart = (product) => {
     setCartItems((prev) => {
-      const existingItemIndex = prev.findIndex(
-        (item) => item.id === product.id
-      );
+      const existingItem = prev.find((item) => item.id === product.id);
 
-      if (existingItemIndex >= 0) {
-        const updatedItems = [...prev];
-        updatedItems[existingItemIndex] = {
-          ...updatedItems[existingItemIndex],
-          quantity: updatedItems[existingItemIndex].quantity + product.quantity,
-        };
-        return updatedItems;
-
-        return [...prev, { ...product }];
+      if (existingItem) {
+        return prev.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity++ } : item
+        );
+      } else {
+        return [...prev, { ...product, quantity: 1 }];
       }
     });
   };
