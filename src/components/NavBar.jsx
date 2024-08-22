@@ -6,10 +6,18 @@ export default function NavBar() {
       <h1>JAKE & IANS CLOTHING CO</h1>
 
       <div className="nav-links-contianer">
-        <NavLink to="/home">Home</NavLink>
-        <NavLink to="/products">Products</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
-        <NavLink to="/shopping-cart">Shopping Cart</NavLink>
+        <NavLink className="nav-link-box" to="/home">
+          Home
+        </NavLink>
+        <NavLink className="nav-link-box" to="/products">
+          Products
+        </NavLink>
+        <NavLink className="nav-link-box" to="/contact">
+          Contact
+        </NavLink>
+        <NavLink className="nav-link-box" to="/shopping-cart">
+          Shopping Cart
+        </NavLink>
       </div>
     </div>
   );

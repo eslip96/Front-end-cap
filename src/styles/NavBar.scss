@@ -8,21 +8,26 @@
   background-color: #00080d;
   height: 100px;
   justify-content: space-between;
+  box-shadow: 5px 5px 0px 5px grey;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: wheat;
 
   h1 {
     font-family: "New Amsterdam", sans-serif;
     font-size: 60px;
-    color: #d9526b;
+    color: #786bf2;
     padding: 10px;
   }
 
   .nav-links-container {
     display: flex;
     justify-content: space-between;
+    border: 1px solid red;
 
-    .NavLink {
+    .nav-link-box {
       display: flex;
       text-decoration: none;
+      border: 1px solid red;
     }
   }
 }
