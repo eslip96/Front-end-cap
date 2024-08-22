@@ -1,12 +1,20 @@
 .nav-bar-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   top: 0;
   border: 1px solid black;
   position: fixed;
-  background-color: azure;
+  background-color: #00080d;
   height: 100px;
+  justify-content: space-between;
+
+  h1 {
+    font-family: "New Amsterdam", sans-serif;
+    font-size: 60px;
+    color: #d9526b;
+    padding: 10px;
+  }
 
   .nav-links-container {
     display: flex;

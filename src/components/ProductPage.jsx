@@ -11,7 +11,7 @@ export default function ProductPage({ match }) {
     fetch(`https://fakestoreapi.com/products/${productId}`)
       .then((res) => res.json())
       .then((json) => setProduct(json))
-      .catch((error) => console.error("Error fetching product:", error));
+      .catch((error) => console.error("error fetching product:", error));
   }, [productId]);
 
   const handleAddItem = () => {
