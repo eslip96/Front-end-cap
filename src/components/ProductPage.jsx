@@ -48,10 +48,16 @@ export default function ProductPage({ match }) {
           <h2 className="product-title">{product.title}</h2>
           <p className="product-price">${product.price}</p>
           <p className="product-category">{product.category}</p>
-          <button onClick={handleRemoveItem}>-</button>
-          <h3>{quantity}</h3>
-          <button onClick={handleAddItem}>+</button>
-          <button onClick={handleSubmit}>Add to Cart</button>
+          <div className="decrement-btns-container">
+            <button id="plus-btn" onClick={handleRemoveItem}>
+              -
+            </button>
+            <h3>{quantity}</h3>
+            <button id="minus-btn" onClick={handleAddItem}>
+              +
+            </button>
+            <button onClick={handleSubmit}>Add to Cart</button>
+          </div>
         </div>
       ) : (
         <p>Loading product...</p>
