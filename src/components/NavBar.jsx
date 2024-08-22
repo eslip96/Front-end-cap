@@ -5,7 +5,7 @@ export default function NavBar() {
     <div className="nav-bar-wrapper">
       <h1>JAKE & IANS CLOTHING CO</h1>
 
-      <div className="nav-links-contianer">
+      <div className="nav-links-container">
         <NavLink className="nav-link-box" to="/home">
           Home
         </NavLink>

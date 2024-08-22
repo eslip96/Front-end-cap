@@ -1,0 +1,18 @@
+.contact-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1000px;
+  width: 100%;
+  background-image: url(../images/royal-black-marble-surface.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .about-me-container {
+    width: 800px;
+    height: 700px;
+    border: 1px solid red;
+    background-color: grey;
+  }
+}

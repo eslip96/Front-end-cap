@@ -2,9 +2,7 @@ export default function HomePage() {
   return (
     <div className="home-page-container">
       <div className="mainbody">
-        <h1>Home</h1>
-        <h2>Hero-container</h2>
-        <h2>IMAGE HERE</h2>
+        <h1>"Always dress up, never down" -Ian</h1>
       </div>
     </div>
   );
