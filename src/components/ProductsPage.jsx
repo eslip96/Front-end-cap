@@ -33,7 +33,7 @@ export default function ProductsPage() {
   return (
     <div className="main-wrapper">
       <div className="filter-wrapper">
-        <label htmlFor="sort">Sort by: </label>
+        <label>Sort by: </label>
         <select id="sort" value={sortOrder} onChange={handleSortChange}>
           <option value="cheap-to-expensive">Cheap to Expensive</option>
           <option value="expensive-to-cheap">Expensive to Cheap</option>
