@@ -17,7 +17,7 @@ function App() {
         <NavBar />
         <Switch>
           <div className="default-page-wrapper">
-            <Route path="/home" component={HomePage} />
+            <Route path="/" component={HomePage} />
             <Route path="/products" component={ProductsPage} />
             <Route path="/product/:id" component={ProductPage} />
             <Route path="/shopping-cart" component={ShoppingCart} />
