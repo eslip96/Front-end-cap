@@ -2,10 +2,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 900px;
   width: 100%;
-  background-image: url(../images/black-and-white-city-night.jpg);
+  margin-top: 100px;
+  background-image: url("../images/grey-stone.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  // overflow-y: none;
+
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    height: 800px;
+    width: 500px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    justify-content: center;
+  }
 }
