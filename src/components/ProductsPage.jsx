@@ -22,7 +22,11 @@ export default function ProductsPage() {
 
   const sortProducts = (order) => {
     let sortedProducts = [...products];
-    if (order === "cheap-to-expensive") {
+    if (sortOrder === "a-z") {
+      sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortOrder === "z-a") {
+      sortedProducts.sort((a, b) => b.title.localeCompare(a.title));
+    } else if (order === "cheap-to-expensive") {
       sortedProducts.sort((a, b) => a.price - b.price);
     } else if (order === "expensive-to-cheap") {
       sortedProducts.sort((a, b) => b.price - a.price);
@@ -33,10 +37,12 @@ export default function ProductsPage() {
   return (
     <div className="main-wrapper">
       <div className="filter-wrapper">
-        <label>Sort by: </label>
         <select id="sort" value={sortOrder} onChange={handleSortChange}>
-          <option value="cheap-to-expensive">Cheap to Expensive</option>
-          <option value="expensive-to-cheap">Expensive to Cheap</option>
+          <option value="">Select Filter</option>
+          <option value="a-z">Title: A-Z</option>
+          <option value="z-a">Title: Z-A</option>
+          <option value="price-low-high">Price: Low to High</option>
+          <option value="price-high-low">Price: High to Low</option>
         </select>
       </div>
       <div className="products-grid">

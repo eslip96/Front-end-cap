@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { CartContext } from "../context/context";
 
 export default function ShoppingCart() {
-  const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+  const { cartItems, addToCart, removeFromCart, clearCart } =
+    useContext(CartContext);
 
   const handleIncrement = (item) => {
     addToCart({ ...item, quantity: 1 });
@@ -18,6 +19,20 @@ export default function ShoppingCart() {
 
   const handleRemove = (item) => {
     removeFromCart(item.id);
+  };
+
+  const handlePlaceOrder = () => {
+    clearCart();
+
+    window.location.href = "http://www.savewalterwhite.com/";
+  };
+
+  const calculateTotal = () => {
+    let total = 0;
+    for (const item of cartItems) {
+      total += item.price * item.quantity;
+    }
+    return total;
   };
 
   const renderCartItems = () => {
@@ -49,7 +64,15 @@ export default function ShoppingCart() {
         {cartItems.length === 0 ? (
           <p>Your Cart is Empty</p>
         ) : (
-          <div className="cart-items-list">{renderCartItems()}</div>
+          <div>
+            <div className="cart-items-list">{renderCartItems()}</div>
+            <div className="cart-total">
+              <h3>Total: ${calculateTotal().toFixed(2)}</h3>
+              <button onClick={handlePlaceOrder} className="place-order-btn">
+                Place Order
+              </button>
+            </div>
+          </div>
         )}
       </div>
     </div>

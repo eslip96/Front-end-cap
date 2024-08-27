@@ -16,7 +16,7 @@ export default function NavBar() {
           Contact
         </NavLink>
         <NavLink className="nav-link-box" to="/shopping-cart">
-          Shopping Cart
+          Cart
         </NavLink>
       </div>
     </div>
