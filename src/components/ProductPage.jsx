@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import { CartContext } from "../context/context";
+import { useHistory } from "react-router-dom";
 
 export default function ProductPage({ match }) {
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const productId = match.params.id;
   const { addToCart } = useContext(CartContext);
+  const history = useHistory();
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${productId}`)
@@ -33,6 +35,7 @@ export default function ProductPage({ match }) {
         quantity,
       };
       addToCart(cartItem);
+      history.push("/products");
     }
   };
 

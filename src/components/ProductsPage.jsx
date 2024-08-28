@@ -3,63 +3,105 @@ import { Link } from "react-router-dom";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
   const [sortOrder, setSortOrder] = useState("");
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
-      .then((data) => {
-        setProducts(data);
-      })
+      .then((data) => setProducts(data))
       .catch((err) => console.log(err));
   }, []);
 
-  const handleSortChange = (e) => {
-    const order = e.target.value;
-    setSortOrder(order);
-    sortProducts(order);
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products/categories")
+      .then((response) => response.json())
+      .then((data) => setCategories(data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const handleCategoryChange = (e) => {
+    const category = e.target.value;
+    setSelectedCategories((prev) =>
+      e.target.checked
+        ? [...prev, category]
+        : prev.filter((cat) => cat !== category)
+    );
   };
 
-  const sortProducts = (order) => {
-    let sortedProducts = [...products];
-    if (sortOrder === "a-z") {
-      sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (sortOrder === "z-a") {
-      sortedProducts.sort((a, b) => b.title.localeCompare(a.title));
-    } else if (order === "cheap-to-expensive") {
-      sortedProducts.sort((a, b) => a.price - b.price);
-    } else if (order === "expensive-to-cheap") {
-      sortedProducts.sort((a, b) => b.price - a.price);
-    }
-    setProducts(sortedProducts);
+  const handleSortChange = (e) => {
+    setSortOrder(e.target.value);
   };
+
+  const filteredProducts = products.filter((product) =>
+    selectedCategories.length
+      ? selectedCategories.includes(product.category)
+      : true
+  );
+
+  const sortedProducts = filteredProducts.slice().sort((a, b) => {
+    if (sortOrder === "a-z") {
+      return a.title.localeCompare(b.title);
+    }
+    if (sortOrder === "z-a") {
+      return b.title.localeCompare(a.title);
+    }
+    if (sortOrder === "price-low-high") {
+      return a.price - b.price;
+    }
+    if (sortOrder === "price-high-low") {
+      return b.price - a.price;
+    }
+    return 0;
+  });
 
   return (
     <div className="main-wrapper">
       <div className="filter-wrapper">
+        <h3>Filter by Category:</h3>
+        {categories.map((category) => (
+          <div key={category}>
+            <input
+              type="checkbox"
+              id={category}
+              value={category}
+              onChange={handleCategoryChange}
+              checked={selectedCategories.includes(category)}
+            />
+            <label htmlFor={category}>{category}</label>
+          </div>
+        ))}
+
+        <h3>Sort by:</h3>
         <select id="sort" value={sortOrder} onChange={handleSortChange}>
-          <option value="">Select Filter</option>
+          <option value="">Select Order</option>
           <option value="a-z">Title: A-Z</option>
           <option value="z-a">Title: Z-A</option>
           <option value="price-low-high">Price: Low to High</option>
           <option value="price-high-low">Price: High to Low</option>
         </select>
       </div>
+
       <div className="products-grid">
-        {products.map((product) => (
-          <div key={product.id} className="product-card">
-            <Link to={`/product/${product.id}`}>
-              <img
-                src={product.image}
-                alt={product.title}
-                className="product-image"
-              />
-              <h2 className="product-title">{product.title}</h2>
-              <p className="product-price">${product.price}</p>
-              <p className="product-category">{product.category}</p>
-            </Link>
-          </div>
-        ))}
+        {sortedProducts.length > 0 ? (
+          sortedProducts.map((product) => (
+            <div key={product.id} className="product-card">
+              <Link to={`/product/${product.id}`}>
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="product-image"
+                />
+                <h2 className="product-title">{product.title}</h2>
+                <p className="product-price">${product.price}</p>
+                <p className="product-category">{product.category}</p>
+              </Link>
+            </div>
+          ))
+        ) : (
+          <p>No products to display</p>
+        )}
       </div>
     </div>
   );
