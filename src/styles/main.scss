@@ -1,3 +1,5 @@
+// main-styles
+
 @import "./common.scss";
 @import "./NavBar.scss";
 @import "./HomePage.scss";
@@ -7,3 +9,8 @@
 @import "./ShoppingCart.scss";
 @import "./Contact.scss";
 @import "./About.scss";
+
+// media-queries
+
+@import "./media-queries/HomePage-queries.scss";
+@import "./media-queries/NavBar-queries.scss";

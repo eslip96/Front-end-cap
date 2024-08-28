@@ -55,5 +55,9 @@
         transform: scaleX(1);
       }
     }
+    .hamburger-button {
+      display: none;
+      cursor: pointer;
+    }
   }
 }

@@ -1,0 +1,27 @@
+@media only screen and (max-width: 1024px) {
+  .nav-bar-wrapper {
+    position: relative;
+  }
+
+  .nav-links-container {
+    display: none;
+  }
+
+  .hamburger-button {
+    display: block;
+  }
+
+  .hamburger-button:focus + .nav-links-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+
+  .nav-link-box {
+    display: block;
+    text-align: left;
+  }
+}

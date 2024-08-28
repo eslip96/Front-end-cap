@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { CartContext } from "../context/context";
+import { CartContext } from "../context/CartContext";
 import { useHistory } from "react-router-dom";
 
 export default function ProductPage({ match }) {
