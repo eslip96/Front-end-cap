@@ -1,6 +1,6 @@
 import "./styles/main.scss";
 
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import ProductsPage from "./components/ProductsPage";
 import ProductPage from "./components/ProductPage";
@@ -9,7 +9,6 @@ import Footer from "./components/Footer";
 import ShoppingCart from "./components/ShoppingCart";
 import Contact from "./components/Contact";
 import About from "./components/About";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 function App() {
   return (
