@@ -47,3 +47,106 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .nav-bar-wrapper {
+    h1 {
+      font-size: 40px;
+    }
+
+    .links-wrapper {
+      margin: 0;
+      display: none;
+      background-color: darkgrey;
+      position: absolute;
+      right: 32px;
+      top: 50px;
+      width: 150px;
+      gap: 15px;
+    }
+
+    .nav-link-box {
+      font-family: "New Amsterdam", sans-serif;
+      text-decoration: none;
+      display: flex;
+      border: 1px black;
+      font-size: 50px;
+      width: 20px;
+      height: 30px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: wheat;
+        width: 150px;
+      }
+    }
+
+    .hamburger-button {
+      font-family: "New Amsterdam", sans-serif;
+      font-size: 30px;
+      display: flex;
+      height: 50px;
+      width: 100px;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .menu-open {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .nav-bar-wrapper {
+    h1 {
+      display: flex;
+      font-size: 40px;
+      text-align: center;
+      margin: 0;
+    }
+
+    .links-wrapper {
+      margin: 0;
+      display: none;
+      background-color: darkgrey;
+      position: absolute;
+      right: 12px;
+      top: 50px;
+      width: 150px;
+      gap: 15px;
+    }
+
+    .nav-link-box {
+      font-family: "New Amsterdam", sans-serif;
+      text-decoration: none;
+      display: flex;
+      border: 1px black;
+      font-size: 50px;
+      width: 20px;
+      height: 30px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: wheat;
+        width: 150px;
+      }
+    }
+
+    .hamburger-button {
+      font-family: "New Amsterdam", sans-serif;
+      font-size: 30px;
+      display: flex;
+      height: 50px;
+      width: 100px;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .menu-open {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

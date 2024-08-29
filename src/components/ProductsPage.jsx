@@ -129,7 +129,10 @@ export default function ProductsPage() {
                   +
                 </button>
               </div>
-              <button onClick={() => handleAddToCart(product)}>
+              <button
+                className="submit-btn"
+                onClick={() => handleAddToCart(product)}
+              >
                 Add to Cart
               </button>
             </div>

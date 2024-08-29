@@ -26,3 +26,13 @@
     }
   }
 }
+
+@media (max-width: 425px) {
+  .home-page-container {
+    h1 {
+      display: flex;
+      font-size: 50px;
+      text-align: center;
+    }
+  }
+}

@@ -85,17 +85,18 @@
         }
       }
 
-      button.add-to-cart {
-        background-color: #007bff;
+      .submit-btn {
+        background-color: #786bf2;
         color: white;
         border: none;
         border-radius: 5px;
-        padding: 10px 15px;
+        padding: 5px 10px;
         font-size: 1em;
         transition: background-color 0.3s;
 
         &:hover {
-          background-color: #0056b3;
+          background-color: #4b3fb9;
+          cursor: pointer;
         }
       }
     }
